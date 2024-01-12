@@ -1,21 +1,11 @@
-DATABASE_NAME="$1"
-
---# Define the SQL query to retrieve table information
-TABLE_INFO_SQL="SELECT 
-CONCAT('CREATE TABLE `', table_name, '` (\n',
-GROUP_CONCAT(
-CONCAT('  `', column_name, '` ', data_type,
-IF(IS_NULLABLE = 'NO', ' NOT NULL', ' DEFAULT NULL'),
-IF(COLUMN_KEY = 'PRI', ' PRIMARY KEY', ''),
-IF(EXTRA = 'auto_increment', ' AUTO_INCREMENT', ''),
-','),
-'\n'
-),
-'\n) ENGINE=', engine, ' DEFAULT CHARSET=', table_collation, ';\n')
-FROM information_schema.tables
-JOIN information_schema.columns USING (table_schema, table_name)
-
-WHERE table_schema = '$DATABASE_NAME' AND table_name = 'first_table';"
-
---# USE THE MYSQL COMMAND TO EXECUTE THE QUERY
-MYSQL -H LOCALHOST -U ROOT -P $DATABASE_NAME -E "$TABLE_INFO_SQL"
+-- Create database and table
+DROP DATABASE IF EXISTS hbtn_test_db_5;
+CREATE DATABASE IF NOT EXISTS hbtn_test_db_5;
+USE hbtn_test_db_5;
+CREATE TABLE IF NOT EXISTS first_table (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(128),
+    c CHAR(1),
+    created_at DATE,
+    PRIMARY KEY (id)
+);
