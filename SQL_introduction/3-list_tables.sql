@@ -1,11 +1,10 @@
--- # Check for database name argument
-if [ -z "$1" ]; then
+-- Create the database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS hbtn_0c_0;
 
-ECHO "Error: Please provide the database name as an argument."
+-- Switch to the hbtn_0c_0 database
+USE hbtn_0c_0;
 
-exit 1
+-- Check if the database exists before dropping it
+DROP DATABASE IF EXISTS hbtn_0c_0;
 
-FI
-
---# Connect to MySQL server
-MYSQL -HLOCALHOST -UROOT -P -E "SHOW TABLES FROM $1;"
+SHOW TABLES FROM hbtn_0c_0;
