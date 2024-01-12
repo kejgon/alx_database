@@ -1,38 +1,17 @@
--- full creation
 -- Create database
 DROP DATABASE IF EXISTS hbtn_test_db_9;
 CREATE DATABASE IF NOT EXISTS hbtn_test_db_9;
 USE hbtn_test_db_9;
 
+-- Create table
+CREATE TABLE IF NOT EXISTS second_table (
+    id INT,
+    name VARCHAR(256),
+    score INT
+);
 
--- # Define the SQL query to create second_table
-CREATE_TABLE_SQL="CREATE TABLE IF NOT EXISTS $DATABASE_NAME.second_table (
-id INT NOT NULL,
-name VARCHAR(256),
-score INT,
-PRIMARY KEY (id)
-
-);"
-
-MYSQL -H LOCALHOST -U ROOT -P $DATABASE_NAME -E "$CREATE_TABLE_SQL"
-
---# Define the SQL query to insert rows into second_table
-INSERT_ROWS_SQL="INSERT INTO $DATABASE_NAME.second_table (id, name, score) VALUES
-
-(1,
-'John',
-10),
-(2,
-'Alex',
-3),
-(3,
-'Bob',
-14),
-(4,
-'George',
-8);
-
-"
-
---# Use the MySQL command to execute the query
-MYSQL -H LOCALHOST -U ROOT -P $DATABASE_NAME -E "$INSERT_ROWS_SQL"
+-- Create records
+INSERT INTO second_table (id, name, score) VALUES (11, "A", 12);
+INSERT INTO second_table (id, name, score) VALUES (12, "B", 12);
+INSERT INTO second_table (id, name, score) VALUES (13, "C", 12);
+INSERT INTO second_table (id, name, score) VALUES (14, "D", 12);
