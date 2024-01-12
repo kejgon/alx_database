@@ -1,8 +1,68 @@
---# Assuming 'your_database_name' is the argument passed to the script
-DATABASE_NAME="$1"
+-- Create database
+DROP DATABASE IF EXISTS HBTN_TEST_DB_8;
 
---# Define the SQL query to count records with id = 89 in first_table
-COUNT_RECORDS_SQL="SELECT COUNT(*) FROM $DATABASE_NAME.first_table WHERE id = 89;"
+CREATE DATABASE IF NOT EXISTS HBTN_TEST_DB_8;
 
---# Use the MySQL command to execute the query
-MYSQL -H LOCALHOST -U ROOT -P $DATABASE_NAME -E "$COUNT_RECORDS_SQL"
+USE HBTN_TEST_DB_8;
+
+-- Create table
+CREATE TABLE IF NOT EXISTS FIRST_TABLE (
+    ID INT,
+    NAME VARCHAR(256)
+);
+
+-- Create records
+INSERT INTO FIRST_TABLE (
+    ID,
+    NAME
+) VALUES (
+    1,
+    "A"
+);
+
+INSERT INTO FIRST_TABLE (
+    ID,
+    NAME
+) VALUES (
+    89,
+    "B"
+);
+
+INSERT INTO FIRST_TABLE (
+    ID,
+    NAME
+) VALUES (
+    2,
+    "C"
+);
+
+INSERT INTO FIRST_TABLE (
+    ID,
+    NAME
+) VALUES (
+    89,
+    "D"
+);
+
+INSERT INTO FIRST_TABLE (
+    ID,
+    NAME
+) VALUES (
+    89,
+    "E"
+);
+
+INSERT INTO FIRST_TABLE (
+    ID,
+    NAME
+) VALUES (
+    3,
+    "F"
+);
+
+SELECT
+    COUNT(*)
+FROM
+    $DATABASE_NAME.FIRST_TABLE
+WHERE
+    ID = 89;
