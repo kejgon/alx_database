@@ -1,4 +1,3 @@
---# Assuming 'your_database_name' is the argument passed to the script
 DATABASE_NAME="$1"
 
 --# Define the SQL query to retrieve table information
@@ -18,5 +17,5 @@ JOIN information_schema.columns USING (table_schema, table_name)
 
 WHERE table_schema = '$DATABASE_NAME' AND table_name = 'first_table';"
 
---# Use the MySQL command to execute the query
+--# USE THE MYSQL COMMAND TO EXECUTE THE QUERY
 MYSQL -H LOCALHOST -U ROOT -P $DATABASE_NAME -E "$TABLE_INFO_SQL"
