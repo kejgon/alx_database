@@ -1,10 +1,19 @@
--- Create the database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS hbtn_0c_0;
+-- Delete and create database hbtn_test_db_0 and create 3 tables
+DROP DATABASE IF EXISTS hbtn_test_db_0;
+CREATE DATABASE IF NOT EXISTS hbtn_test_db_0;
+USE hbtn_test_db_0;
 
--- Switch to the hbtn_0c_0 database
-USE hbtn_0c_0;
+CREATE TABLE IF NOT EXISTS holbteron_0 (
+    id INT
+);
 
--- Check if the database exists before dropping it
-DROP DATABASE IF EXISTS hbtn_0c_0;
+CREATE TABLE IF NOT EXISTS holbteron_1 (
+    name VARCHAR(256)
+);
 
-SHOW TABLES FROM hbtn_0c_0;
+CREATE TABLE IF NOT EXISTS holbteron_2 (
+    id INT,
+    name VARCHAR(256)
+);
+
+SHOW TABLES FROM hbtn_test_db_0;
