@@ -11,9 +11,6 @@ CREATE_TABLE_SQL="CREATE TABLE IF NOT EXISTS $DATABASE_NAME.second_table (
     PRIMARY KEY (id)
 );"
 
--- # Use the MySQL command to execute the query
-mysql -h localhost -u root -p $DATABASE_NAME -e "$CREATE_TABLE_SQL"
-
 -- # Define the SQL query to insert rows into second_table
 INSERT_ROWS_SQL="INSERT INTO $DATABASE_NAME.second_table (id, name, score) VALUES
     (1, 'John', 10),
