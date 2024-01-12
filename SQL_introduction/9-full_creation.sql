@@ -1,5 +1,5 @@
 -- full creation
-DATABASE_NAME="hbtn_0c_0"
+DATABASE_NAME="$1"
 
 -- # Define the SQL query to create second_table
 CREATE_TABLE_SQL="CREATE TABLE IF NOT EXISTS $DATABASE_NAME.second_table (
