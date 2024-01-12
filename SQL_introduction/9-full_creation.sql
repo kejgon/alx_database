@@ -1,11 +1,9 @@
 -- full creation
--- Create the database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS HBTN_TEST_DB_9;
+-- Create database
+DROP DATABASE IF EXISTS hbtn_test_db_9;
+CREATE DATABASE IF NOT EXISTS hbtn_test_db_9;
+USE hbtn_test_db_9;
 
-DATABASE_NAME="hbtn_test_db_9"
-
--- Switch to the hbtn_0c_0 database
-USE DATABASE_NAME;
 
 -- # Define the SQL query to create second_table
 CREATE_TABLE_SQL="CREATE TABLE IF NOT EXISTS $DATABASE_NAME.second_table (
