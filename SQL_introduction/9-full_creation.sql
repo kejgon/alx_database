@@ -1,4 +1,9 @@
 -- full creation
+-- Create the database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS HBTN_TEST_DB_9;
+
+-- Switch to the hbtn_0c_0 database
+-- USE HBTN_0C_0;
 DATABASE_NAME="hbtn_test_db_9"
 
 -- # Define the SQL query to create second_table
