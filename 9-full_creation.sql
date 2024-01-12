@@ -1,3 +1,4 @@
+-- full creation
 DATABASE_NAME="hbtn_0c_0"
 
 -- # Define the SQL query to create second_table
