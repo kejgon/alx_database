@@ -1,11 +1,11 @@
 -- Create the database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS hbtn_test_db_4;
+CREATE DATABASE IF NOT EXISTS HBTN_TEST_DB_4;
 
 -- Switch to the hbtn_test_db_4 database
-USE hbtn_test_db_4;
+USE HBTN_TEST_DB_4;
 
 -- Create the first_table if it doesn't exist
-CREATE TABLE IF NOT EXISTS first_table (
+CREATE TABLE IF NOT EXISTS FIRST_TABLE (
     ID INT,
     NAME VARCHAR(256)
 );
