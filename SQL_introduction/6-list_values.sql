@@ -1,8 +1,17 @@
---# Assuming 'your_database_name' is the argument passed to the script
-DATABASE_NAME="$1"
+-- Create database 
+DROP DATABASE IF EXISTS hbtn_test_db_6;
+CREATE DATABASE IF NOT EXISTS hbtn_test_db_6;
+USE hbtn_test_db_6;
 
---# Define the SQL query to select all rows from first_table
-SELECT_ALL_ROWS_SQL="SELECT * FROM $DATABASE_NAME.first_table;"
+-- Create table
+CREATE TABLE IF NOT EXISTS first_table (
+    id INT,
+    name VARCHAR(256)
+);
 
---# Use the MySQL command to execute the query
-MYSQL -H LOCALHOST -U ROOT -P $DATABASE_NAME -E "$SELECT_ALL_ROWS_SQL"
+-- Insert 3 records
+INSERT INTO first_table (id, name) VALUES (1, "First name");
+INSERT INTO first_table (id, name) VALUES (2, "Last name");
+INSERT INTO first_table (id, name) VALUES (3, "name");
+
+SELECT * FROM first_table;
