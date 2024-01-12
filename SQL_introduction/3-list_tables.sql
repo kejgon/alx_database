@@ -1,7 +1,10 @@
 
 
--- # Assuming 'your_database_name' is the argument passed to the script
-DATABASE_NAME="hbtn_0c_0"
+-- # Check for database name argument
+if [ -z "$1" ]; then
+  echo "Error: Please provide the database name as an argument."
+  exit 1
+fi
 
--- # Use the MySQL command to list tables in the specified database
-mysql -u root -p -e "USE ${DATABASE_NAME}; SHOW TABLES;"
+--# Connect to MySQL server
+mysql -hlocalhost -uroot -p -e "SHOW TABLES FROM $1;"
