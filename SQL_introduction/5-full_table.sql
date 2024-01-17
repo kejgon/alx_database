@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS first_table (
 SELECT
     CONCAT('CREATE TABLE `first_table` (',
            GROUP_CONCAT(
-               CONCAT('`', COLUMN_NAME, '`', COLUMN_TYPE,
-                      IF(IS_NULLABLE = 'NO', 'NOT NULL', 'DEFAULT NULL'),
+               CONCAT('`', COLUMN_NAME, '` ', COLUMN_TYPE,
+                      IF(IS_NULLABLE = 'NO', ' NOT NULL', ' DEFAULT NULL'),
                       IF(COLUMN_DEFAULT IS NOT NULL, CONCAT(' DEFAULT ', COLUMN_DEFAULT), ''),
                       IF(EXTRA = 'auto_increment', ' AUTO_INCREMENT', ''),
                       ','
