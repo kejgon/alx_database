@@ -17,8 +17,7 @@ BEGIN
     -- Attempt to create the table force_name
     CREATE TABLE force_name (
         id INT,
-        name VARCHAR(256) NOT NULL,
-        PRIMARY KEY (id)
+        name VARCHAR(256) NOT NULL
     );
 
     -- Check if an error occurred (table already exists)
