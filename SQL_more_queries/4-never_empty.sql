@@ -11,10 +11,3 @@ CREATE TABLE IF NOT EXISTS id_not_null (
     name VARCHAR(256)
 );
 
--- If the table already exists, modify the default value for the 'id' column
--- (Optional: You can skip this part if you don't want to modify the default value)
-ALTER TABLE id_not_null
-MODIFY COLUMN id INT DEFAULT 1;
-
--- -- Example: Inserting a row into the table
--- INSERT INTO id_not_null (name) VALUES ('Example Name');
