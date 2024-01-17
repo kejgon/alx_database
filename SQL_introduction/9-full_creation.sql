@@ -1,22 +1,24 @@
+DROP DATABASE IF EXISTS hbtn_0c_0;
+CREATE DATABASE IF NOT EXISTS hbtn_0c_0;
+USE hbtn_0c_0;
 
+-- Create table
+CREATE TABLE IF NOT EXISTS first_table (
+    id INT,
+    name VARCHAR(256)
+);
 
--- # Assuming 'your_database_name' is the argument passed to the script
-DATABASE_NAME="$1"
-
--- # Define the SQL query to create second_table
-CREATE_TABLE_SQL="CREATE TABLE IF NOT EXISTS $DATABASE_NAME.second_table (
-    id INT NOT NULL,
+-- Create table if not exists
+CREATE TABLE IF NOT EXISTS second_table (
+    id INT,
     name VARCHAR(256),
-    score INT,
-    PRIMARY KEY (id)
-);"
+    score INT
+);
 
--- # Define the SQL query to insert rows into second_table
-INSERT_ROWS_SQL="INSERT INTO $DATABASE_NAME.second_table (id, name, score) VALUES
-    (1, 'John', 10),
-    (2, 'Alex', 3),
-    (3, 'Bob', 14),
-    (4, 'George', 8);"
+-- Insert records
+INSERT INTO second_table (id, name, score) VALUES (1, 'John', 10);
+INSERT INTO second_table (id, name, score) VALUES (2, 'Alex', 3);
+INSERT INTO second_table (id, name, score) VALUES (3, 'Bob', 14);
+INSERT INTO second_table (id, name, score) VALUES (4, 'George', 8);
 
--- # Use the MySQL command to execute the query
-mysql -h localhost -u root -p $DATABASE_NAME -e "$INSERT_ROWS_SQL"
+-
