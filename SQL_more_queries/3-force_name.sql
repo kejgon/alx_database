@@ -5,22 +5,22 @@ USE YourDatabaseName; -- Replace YourDatabaseName with the actual database name
 DELIMITER //
 CREATE PROCEDURE CreateForceNameTable()
 BEGIN
-    DECLARE table_exists INT DEFAULT 0;
+    DECLARE continue_handler INT DEFAULT 0;
 
-    -- Check if the table force_name exists in the specified database
-    SELECT COUNT(*)
-    INTO table_exists
-    FROM information_schema.tables
-    WHERE table_schema = 'YourDatabaseName'
-    AND table_name = 'force_name';
+    -- Declare a condition handler for potential errors
+    DECLARE CONTINUE HANDLER FOR SQLSTATE '42S01' SET continue_handler = 1;
 
-    -- If the table does not exist, create it
-    IF table_exists = 0 THEN
-        CREATE TABLE force_name (
-            id INT,
-            name VARCHAR(256) NOT NULL,
-            PRIMARY KEY (id)
-        );
+    -- Attempt to create the table force_name
+    CREATE TABLE force_name (
+        id INT,
+        name VARCHAR(256) NOT NULL,
+        PRIMARY KEY (id)
+    );
+
+    -- Check if an error occurred (table already exists)
+    IF continue_handler = 1 THEN
+        -- Reset the continue_handler variable
+        SET continue_handler = 0;
     END IF;
 END //
 DELIMITER ;
