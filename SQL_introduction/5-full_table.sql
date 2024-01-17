@@ -10,14 +10,20 @@ CREATE TABLE IF NOT EXISTS first_table (
     PRIMARY KEY (id)
 );
 
--- Get table information from information_schema
+-- Get detailed CREATE TABLE statement from information_schema
 SELECT
-    COLUMN_NAME AS 'Field',
-    COLUMN_TYPE AS 'Type',
-    IS_NULLABLE AS 'Null',
-    COLUMN_KEY AS 'Key',
-    COLUMN_DEFAULT AS 'Default',
-    EXTRA AS 'Extra'
+    CONCAT('CREATE TABLE `first_table` (',
+           GROUP_CONCAT(
+               CONCAT('`', COLUMN_NAME, '`', COLUMN_TYPE,
+                      IF(IS_NULLABLE = 'NO', 'NOT NULL', 'DEFAULT NULL'),
+                      IF(COLUMN_DEFAULT IS NOT NULL, CONCAT(' DEFAULT ', COLUMN_DEFAULT), ''),
+                      IF(EXTRA = 'auto_increment', ' AUTO_INCREMENT', ''),
+                      ','
+               )
+           ),
+           'PRIMARY KEY (`id`)',
+           ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;'
+    ) AS 'Create Table'
 FROM
     INFORMATION_SCHEMA.COLUMNS
 WHERE
