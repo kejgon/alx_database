@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS cities (
 );
 
 -- List all cities of California without using JOIN
-SELECT cities.id, cities.name
-FROM cities, states
-WHERE cities.state_id = (SELECT id FROM states WHERE name = 'California')
-ORDER BY cities.id ASC;
+SELECT id, name
+FROM cities
+WHERE state_id = (SELECT id FROM states WHERE name = 'California')
+ORDER BY id ASC;
