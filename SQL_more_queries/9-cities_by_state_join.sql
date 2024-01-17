@@ -18,12 +18,10 @@ CREATE TABLE IF NOT EXISTS cities (
     FOREIGN KEY(state_id) REFERENCES states(id)
 );
 
-
-
--- List all cities of California without using JOIN
-SELECT id, name
+-- List all cities with their id, name, and corresponding state name
+SELECT
+    cities.id,
+    cities.name,
+    (SELECT states.name FROM states WHERE states.id = cities.state_id) AS state_name
 FROM cities
-WHERE state_id = (SELECT id FROM states WHERE name = 'California')
-ORDER BY id ASC;
-
-
+ORDER BY cities.id ASC;
