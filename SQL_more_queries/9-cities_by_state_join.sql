@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS cities (
     FOREIGN KEY(state_id) REFERENCES states(id)
 );
 
--- List all cities with their id, name, and corresponding state name
+-- - List all cities with their id, name, and corresponding state name
 SELECT
     cities.id,
     cities.name,
