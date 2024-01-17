@@ -1,5 +1,9 @@
--- Attempt to create the table force_name
-USE YourDatabaseName; -- Replace YourDatabaseName with the actual database name
+-- Attempt to create the database hbtn_test_db_3
+DROP DATABASE IF EXISTS hbtn_test_db_3;
+CREATE DATABASE IF NOT EXISTS hbtn_test_db_3;
+
+-- Switch to the new database
+USE hbtn_test_db_3;
 
 -- Use a procedure to handle potential errors when creating the table
 DELIMITER //
@@ -25,5 +29,5 @@ BEGIN
 END //
 DELIMITER ;
 
--- Call the procedure
+-- Call the procedure to create the force_name table
 CALL CreateForceNameTable();
