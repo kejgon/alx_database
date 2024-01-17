@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS first_table (
     name VARCHAR(256)
 );
 
+
 SELECT
     COUNT(*)
 FROM
