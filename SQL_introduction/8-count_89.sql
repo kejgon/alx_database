@@ -15,4 +15,4 @@ SELECT
 FROM
     first_table
 WHERE
-    ID = 89;
+    id = 89;
