@@ -1,21 +1,18 @@
 -- Create database
-DROP DATABASE IF EXISTS HBTN_TEST_DB_7;
+DROP DATABASE IF EXISTS hbtn_0c_0;
 
-CREATE DATABASE IF NOT EXISTS HBTN_TEST_DB_7;
+CREATE DATABASE IF NOT EXISTS hbtn_0c_0;
 
-USE HBTN_TEST_DB_7;
+
+-- Database name passed as an argument to the script
+USE hbtn_0c_0;
+
 
 -- Create table
-CREATE TABLE IF NOT EXISTS FIRST_TABLE (
-    ID INT,
-    NAME VARCHAR(256)
+CREATE TABLE IF NOT EXISTS first_table (
+    id INT,
+    name VARCHAR(256)
 );
 
--- Inserting into a table
-INSERT INTO FIRST_TABLE (
-    ID,
-    NAME
-) VALUES (
-    89,
-    'Holberton School'
-);
+-- Insert a new row into the first_table
+INSERT INTO first_table (id, name) VALUES (89, 'Holberton School');
