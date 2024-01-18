@@ -1,10 +1,6 @@
 -- #!/bin/bash
 
 -- # Check if a database name is provided as an argument
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 <database_name>"
-    exit 1
-fi
 
 database_name=$1
 
