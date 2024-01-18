@@ -1,4 +1,4 @@
--- #!/bin/bash
+#!/bin/bash
 
 -- # Check if a database name is provided as an argument
 if [ $# -eq 0 ]; then
