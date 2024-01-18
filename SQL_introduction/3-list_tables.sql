@@ -1,16 +1,19 @@
--- -- Delete and create database hbtn_test_db_0
--- DROP DATABASE IF EXISTS hbtn_test_db_0;
--- CREATE DATABASE IF NOT EXISTS hbtn_test_db_0;
+-- Delete and create database hbtn_test_db_0 and create 3 tables
+DROP DATABASE IF EXISTS hbtn_test_db_0;
+CREATE DATABASE IF NOT EXISTS hbtn_test_db_0;
+USE hbtn_test_db_0;
 
--- USE hbtn_test_db_0;
+CREATE TABLE IF NOT EXISTS holbteron_0 (
+    id INT
+);
 
--- SHOW TABLES FROM hbtn_test_db_0;
+CREATE TABLE IF NOT EXISTS holbteron_1 (
+    name VARCHAR(256)
+);
 
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 <database_name>"
-    exit 1
-fi
-
-USE $database_name; 
+CREATE TABLE IF NOT EXISTS holbteron_2 (
+    id INT,
+    name VARCHAR(256)
+);
 
 SHOW TABLES;
